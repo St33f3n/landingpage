@@ -1,0 +1,399 @@
+/* ocean.css - IT Ocean Theme */
+
+/* Ocean Theme Variables */
+.ocean-theme {
+    --ocean-gradient: linear-gradient(180deg, 
+        #1e3a8a 0%,     /* Deep blue at top */
+        #0f172a 30%,    /* Darker blue */
+        #020617 70%,    /* Very dark */
+        #000000 100%    /* Abyss at bottom */
+    );
+}
+
+/* Ocean Content Styling */
+.ocean-content {
+    background: var(--ocean-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.ocean-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px var(--space-lg) var(--space-lg);
+    position: relative;
+    z-index: 10;
+}
+
+.ocean-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    background: linear-gradient(45deg, var(--sea-foam), var(--tropical-blue));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-2xl);
+}
+
+/* Waves at top of ocean */
+.ocean-waves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ocean-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E") repeat-x;
+    animation: oceanFlow 8s ease-in-out infinite;
+}
+
+.ocean-wave:nth-child(1) {
+    animation-delay: 0s;
+    opacity: 0.3;
+}
+
+.ocean-wave:nth-child(2) {
+    top: 20px;
+    animation-delay: 2s;
+    opacity: 0.2;
+    transform: scaleX(-1);
+}
+
+.ocean-wave:nth-child(3) {
+    top: 40px;
+    animation-delay: 4s;
+    opacity: 0.1;
+}
+
+@keyframes oceanFlow {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(-30px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(0) translateY(-10px);
+    }
+    75% {
+        transform: translateX(20px) translateY(-3px);
+    }
+}
+
+/* Lighthouse Section */
+.lighthouse-section {
+    margin-bottom: var(--space-2xl);
+}
+
+.contact-lighthouse {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid var(--sea-foam);
+    border-radius: 16px;
+    padding: var(--space-xl);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(45, 212, 191, 0.1);
+}
+
+.contact-lighthouse h2 {
+    color: var(--sea-foam);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+}
+
+.contact-item {
+    background: rgba(15, 23, 42, 0.5);
+    padding: var(--space-md);
+    border-radius: 8px;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.contact-item:hover {
+    border-color: var(--sea-foam);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+/* Surface Waters - Skills */
+.surface-waters {
+    margin-bottom: var(--space-2xl);
+}
+
+.surface-waters h2 {
+    color: var(--tropical-blue);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.skill-category {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid var(--ocean-current);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    backdrop-filter: blur(5px);
+    transition: all var(--transition-normal);
+}
+
+.skill-category:hover {
+    border-color: var(--sea-foam);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(45, 212, 191, 0.1);
+}
+
+.skill-category > h3 {
+    color: var(--sea-foam);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-size: 1.4rem;
+}
+
+.skill-group {
+    margin-bottom: var(--space-md);
+}
+
+.skill-group h4 {
+    color: var(--tropical-blue);
+    margin-bottom: var(--space-sm);
+    font-size: 1.1rem;
+}
+
+.skill-group ul {
+    list-style: none;
+    padding-left: var(--space-sm);
+}
+
+.skill-group li {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+    position: relative;
+}
+
+.skill-group li:before {
+    content: "▸";
+    color: var(--sea-foam);
+    margin-right: var(--space-xs);
+}
+
+/* Deep Current - Projects */
+.deep-current {
+    margin-bottom: var(--space-2xl);
+}
+
+.deep-current h2 {
+    color: var(--deep-teal);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.featured-projects h3 {
+    color: var(--sea-foam);
+    margin-bottom: var(--space-lg);
+}
+
+.project-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--ocean-current);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.project-card.featured {
+    border-color: var(--sea-foam);
+    box-shadow: 0 4px 20px rgba(45, 212, 191, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--tropical-blue);
+    box-shadow: 0 8px 30px rgba(45, 212, 191, 0.2);
+}
+
+.project-card h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.project-links a {
+    color: var(--sea-foam);
+    margin-right: var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--sea-foam);
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+}
+
+.project-links a:hover {
+    background: var(--sea-foam);
+    color: var(--text-dark);
+}
+
+.additional-projects h3 {
+    color: var(--tropical-blue);
+    margin-bottom: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.project-list {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.project-item {
+    background: rgba(30, 41, 59, 0.4);
+    padding: var(--space-md);
+    border-radius: 8px;
+    border-left: 4px solid var(--sea-foam);
+}
+
+.project-item strong {
+    color: var(--text-primary);
+}
+
+/* Ocean Floor - Experience */
+.ocean-floor {
+    background: rgba(2, 6, 23, 0.8);
+    border-radius: 16px;
+    padding: var(--space-xl);
+    border: 1px solid var(--kelp-green);
+}
+
+.ocean-floor h2 {
+    color: var(--kelp-green);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.experience-section,
+.education-section {
+    margin-bottom: var(--space-xl);
+}
+
+.experience-section h3,
+.education-section h3 {
+    color: var(--sea-foam);
+    margin-bottom: var(--space-lg);
+}
+
+.experience-item,
+.education-item {
+    background: rgba(15, 23, 42, 0.5);
+    padding: var(--space-lg);
+    border-radius: 12px;
+    margin-bottom: var(--space-md);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.experience-item h4,
+.education-item h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.experience-item ul,
+.education-item ul {
+    list-style: none;
+    padding-left: var(--space-sm);
+}
+
+.experience-item li,
+.education-item li {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+    position: relative;
+}
+
+.experience-item li:before,
+.education-item li:before {
+    content: "•";
+    color: var(--sea-foam);
+    margin-right: var(--space-sm);
+}
+
+/* Floating particles for ocean effect */
+.ocean-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: floatUp 15s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -20px;
+        opacity: 0;
+        transform: scale(0.3) translateX(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: scale(0.1) translateX(50px);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .ocean-container {
+        padding: 80px var(--space-md) var(--space-md);
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ocean-wave {
+        height: 40px;
+    }
+}

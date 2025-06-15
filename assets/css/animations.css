@@ -1,0 +1,437 @@
+/* animations.css - Complete Transition Animations */
+
+/* Transition Button Hover Effects (Mouse Position Based) */
+.transition-controls {
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+}
+
+.transition-controls.show-left .btn-ocean,
+.transition-controls.show-right .btn-jungle {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.transition-controls.show-left .btn-jungle,
+.transition-controls.show-right .btn-ocean {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Ocean Transition Animations */
+.wave-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(180deg, 
+        #87CEEB 0%,     /* Sky blue */
+        #4682B4 20%,    /* Steel blue */
+        #1e3a8a 50%,    /* Deep blue */
+        #0f172a 100%    /* Very dark */
+    );
+    transition: opacity 0.5s ease;
+}
+
+.wave-overlay.active {
+    opacity: 1;
+    animation: oceanDive 2s ease-out forwards;
+}
+
+@keyframes oceanDive {
+    0% {
+        transform: translateY(100vh);
+        background: linear-gradient(180deg, 
+            #87CEEB 0%, #4682B4 20%, #1e3a8a 50%, #0f172a 100%
+        );
+    }
+    40% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10vh);
+        background: linear-gradient(180deg, 
+            #1e3a8a 0%, #0f172a 30%, #020617 70%, #000000 100%
+        );
+    }
+}
+
+.wave-element {
+    position: absolute;
+    width: 120%;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff' fill-opacity='0.15'/%3E%3C/svg%3E") repeat-x;
+    animation: waveMotion 3s ease-in-out infinite;
+    top: 0;
+}
+
+.wave-element.wave-1 {
+    animation-delay: 0s;
+    opacity: 0.8;
+}
+
+.wave-element.wave-2 {
+    top: 20px;
+    animation-delay: 1s;
+    opacity: 0.6;
+    transform: scaleX(-1);
+}
+
+.wave-element.wave-3 {
+    top: 40px;
+    animation-delay: 2s;
+    opacity: 0.4;
+}
+
+@keyframes waveMotion {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(-30px) translateY(-8px);
+    }
+    50% {
+        transform: translateX(0) translateY(-15px);
+    }
+    75% {
+        transform: translateX(20px) translateY(-5px);
+    }
+}
+
+.bubble {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.1) 100%);
+    border-radius: 50%;
+    animation: bubbleRise 4s ease-out infinite;
+    bottom: 0;
+}
+
+@keyframes bubbleRise {
+    0% {
+        bottom: -20px;
+        opacity: 0;
+        transform: scale(0.3) translateX(0);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1) translateX(var(--drift, 0px));
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: scale(0.3) translateX(var(--drift, 0px));
+    }
+}
+
+/* Jungle Transition Animations */
+.palm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.palm-overlay.active .palm-leaf {
+    animation-play-state: running;
+}
+
+.palm-leaf {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    animation-play-state: paused;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+/* Left side palm leaves */
+.palm-leaf.left-1 {
+    top: 10%;
+    left: -250px;
+    animation: palmSweepLeft 2.2s ease-out forwards;
+    animation-delay: 0s;
+}
+
+.palm-leaf.left-2 {
+    top: 40%;
+    left: -280px;
+    animation: palmSweepLeft 2.2s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.palm-leaf.left-3 {
+    top: 70%;
+    left: -220px;
+    animation: palmSweepLeft 2.2s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* Right side palm leaves */
+.palm-leaf.right-1 {
+    top: 15%;
+    right: -250px;
+    animation: palmSweepRight 2.2s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.palm-leaf.right-2 {
+    top: 45%;
+    right: -280px;
+    animation: palmSweepRight 2.2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.palm-leaf.right-3 {
+    top: 75%;
+    right: -220px;
+    animation: palmSweepRight 2.2s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes palmSweepLeft {
+    0% {
+        left: -250px;
+        transform: rotate(-15deg) scale(0.8);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+        transform: rotate(-5deg) scale(1.1);
+    }
+    70% {
+        left: 60vw;
+        transform: rotate(5deg) scale(1.1);
+    }
+    100% {
+        left: 120vw;
+        transform: rotate(10deg) scale(0.9);
+        opacity: 0.8;
+    }
+}
+
+@keyframes palmSweepRight {
+    0% {
+        right: -250px;
+        transform: rotate(20deg) scale(0.8);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+        transform: rotate(5deg) scale(1.1);
+    }
+    70% {
+        right: 60vw;
+        transform: rotate(-5deg) scale(1.1);
+    }
+    100% {
+        right: 120vw;
+        transform: rotate(-10deg) scale(0.9);
+        opacity: 0.8;
+    }
+}
+
+.jungle-reveal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #1a4d3a 0%,     /* Dark green */
+        #2d5a4a 30%,    /* Forest green */
+        #1d3d2f 70%,    /* Deep forest */
+        #0f2419 100%    /* Very dark green */
+    );
+    z-index: 9998;
+    opacity: 0;
+    animation: jungleReveal 2.2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes jungleReveal {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mouse Position Detection for Transition Buttons */
+@media (min-width: 769px) {
+    .transition-controls {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .transition-controls.mouse-left {
+        opacity: 1;
+    }
+    
+    .transition-controls.mouse-left .btn-ocean {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .transition-controls.mouse-left .btn-jungle {
+        opacity: 0;
+        transform: translateX(20px);
+        pointer-events: none;
+    }
+    
+    .transition-controls.mouse-right {
+        opacity: 1;
+    }
+    
+    .transition-controls.mouse-right .btn-jungle {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .transition-controls.mouse-right .btn-ocean {
+        opacity: 0;
+        transform: translateX(-20px);
+        pointer-events: none;
+    }
+}
+
+/* Mobile - Always show both buttons */
+@media (max-width: 768px) {
+    .transition-controls {
+        opacity: 1 !important;
+    }
+    
+    .transition-controls .btn-ocean,
+    .transition-controls .btn-jungle {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+}
+
+/* Page Transition States */
+.page-content {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-content.transitioning-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.page-content.transitioning-in {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.page-content.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Smooth Theme Transitions */
+body {
+    transition: background 0.5s ease;
+}
+
+.strand-theme {
+    background: linear-gradient(135deg, 
+        #fef3c7 0%, #f59e0b 25%, #0ea5e9 75%, #0369a1 100%
+    );
+}
+
+.ocean-theme {
+    background: linear-gradient(180deg, 
+        #1e3a8a 0%, #0f172a 30%, #020617 70%, #000000 100%
+    );
+}
+
+.jungle-theme {
+    background: linear-gradient(135deg, 
+        #1a4d3a 0%, #2d5a4a 30%, #1d3d2f 70%, #0f2419 100%
+    );
+}
+
+/* Performance Optimizations */
+.wave-overlay,
+.palm-overlay,
+.palm-leaf,
+.bubble,
+.wave-element {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .wave-overlay.active {
+        animation: oceanDiveReduced 0.5s ease-out forwards;
+    }
+    
+    .palm-leaf {
+        animation: palmSweepReduced 0.5s ease-out forwards !important;
+    }
+    
+    .jungle-reveal {
+        animation: jungleRevealReduced 0.5s ease-out forwards;
+    }
+    
+    @keyframes oceanDiveReduced {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    @keyframes palmSweepReduced {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    @keyframes jungleRevealReduced {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    .bubble,
+    .wave-element {
+        animation: none !important;
+    }
+}
+
+/* Loading State */
+.page-loading {
+    pointer-events: none;
+}
+
+.page-loading .transition-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Animation Cleanup */
+.animation-cleanup {
+    opacity: 0;
+    pointer-events: none;
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}

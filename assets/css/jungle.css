@@ -1,0 +1,338 @@
+/* jungle.css - Project Jungle Theme */
+
+/* Jungle Theme Variables */
+.jungle-theme {
+    --jungle-gradient: linear-gradient(135deg, 
+        #1a4d3a 0%,     /* Dark green */
+        #2d5a4a 30%,    /* Forest green */
+        #1d3d2f 70%,    /* Deep forest */
+        #0f2419 100%    /* Very dark green */
+    );
+}
+
+/* Jungle Content Styling */
+.jungle-content {
+    background: var(--jungle-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.jungle-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px var(--space-lg) var(--space-lg);
+    position: relative;
+    z-index: 10;
+}
+
+.jungle-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    background: linear-gradient(45deg, var(--vine-green), var(--palm-green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-2xl);
+}
+
+/* Jungle Introduction */
+.jungle-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-2xl);
+    background: rgba(29, 61, 47, 0.6);
+    padding: var(--space-xl);
+    border-radius: 16px;
+    border: 1px solid var(--vine-green);
+    backdrop-filter: blur(10px);
+}
+
+.jungle-intro p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Project Categories */
+.project-categories {
+    margin-bottom: var(--space-2xl);
+}
+
+.category-section {
+    margin-bottom: var(--space-2xl);
+    background: rgba(15, 36, 25, 0.6);
+    border-radius: 20px;
+    padding: var(--space-xl);
+    border: 1px solid var(--jungle-light);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--vine-green), var(--palm-green), var(--vine-green));
+}
+
+.category-section h2 {
+    color: var(--vine-green);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.jungle-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.jungle-project {
+    background: rgba(29, 61, 47, 0.4);
+    border: 1px solid var(--jungle-medium);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.jungle-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--vine-green);
+    border-radius: 2px;
+    transform: scaleY(0);
+    transition: transform var(--transition-normal);
+}
+
+.jungle-project:hover::before {
+    transform: scaleY(1);
+}
+
+.jungle-project:hover {
+    transform: translateY(-5px) translateX(5px);
+    border-color: var(--vine-green);
+    box-shadow: 
+        0 10px 30px rgba(22, 163, 74, 0.1),
+        -5px 0 20px rgba(22, 163, 74, 0.05);
+}
+
+.jungle-project h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    font-size: 1.3rem;
+}
+
+.jungle-project p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Jungle Links Section */
+.jungle-links {
+    text-align: center;
+    background: rgba(15, 36, 25, 0.8);
+    border-radius: 20px;
+    padding: var(--space-xl);
+    border: 2px solid var(--palm-green);
+    backdrop-filter: blur(10px);
+}
+
+.jungle-links h2 {
+    color: var(--palm-green);
+    margin-bottom: var(--space-lg);
+}
+
+.external-links {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.jungle-link {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: linear-gradient(135deg, var(--vine-green), var(--palm-green));
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.jungle-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.jungle-link:hover::before {
+    left: 100%;
+}
+
+.jungle-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+    border-color: var(--palm-green);
+}
+
+/* Jungle Decorative Elements */
+.jungle-vines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.vine {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(180deg, var(--vine-green), transparent);
+    animation: vineGrow 10s ease-out infinite;
+}
+
+.vine:nth-child(1) {
+    left: 5%;
+    height: 200px;
+    animation-delay: 0s;
+}
+
+.vine:nth-child(2) {
+    left: 15%;
+    height: 150px;
+    animation-delay: 2s;
+}
+
+.vine:nth-child(3) {
+    right: 10%;
+    height: 180px;
+    animation-delay: 4s;
+}
+
+.vine:nth-child(4) {
+    right: 25%;
+    height: 120px;
+    animation-delay: 6s;
+}
+
+@keyframes vineGrow {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0.3;
+    }
+    100% {
+        height: var(--vine-height, 200px);
+        opacity: 0;
+    }
+}
+
+/* Jungle Particles */
+.jungle-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.leaf-particle {
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    background: var(--vine-green);
+    border-radius: 0 100% 0 100%;
+    animation: leafFall 12s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes leafFall {
+    0% {
+        top: -20px;
+        opacity: 0;
+        transform: rotate(0deg) translateX(0);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: rotate(360deg) translateX(100px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .jungle-container {
+        padding: 80px var(--space-md) var(--space-md);
+    }
+    
+    .jungle-projects {
+        grid-template-columns: 1fr;
+    }
+    
+    .external-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .jungle-link {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .category-section {
+        padding: var(--space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .jungle-intro {
+        padding: var(--space-lg);
+    }
+    
+    .jungle-intro p {
+        font-size: 1rem;
+    }
+    
+    .jungle-project {
+        padding: var(--space-md);
+    }
+}
