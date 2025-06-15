@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stefan Simmeth - Bioprozessinformatik Student mit Passion für IoT-Automatisierung und selbst-gehostete Infrastrukturen">
+    <meta name="keywords" content="Stefan Simmeth, Bioprozessinformatik, IoT, Automatisierung, Rust, Python, Self-hosted">
+    <meta name="author" content="Stefan Simmeth">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Stefan Simmeth - Engineering the Space Between Bits and Atoms">
+    <meta property="og:description" content="Bioprozessinformatik Student mit Passion für IoT-Automatisierung und selbst-gehostete Infrastrukturen">
+    <meta property="og:url" content="https://stefan-simmeth.dev">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="svgs/logo.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <title>Stefan Simmeth - Engineering the Space Between Bits and Atoms</title>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/strand.css">
+    <link rel="stylesheet" href="assets/css/ocean.css">
+    <link rel="stylesheet" href="assets/css/jungle.css">
     <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body class="strand-theme">
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-navigation">Skip to main content</a>
+    
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -16,28 +41,31 @@
                 <span class="logo-text">Stefan Simmeth</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#strand" class="nav-link active">Strand</a></li>
-                <li><a href="#ocean" class="nav-link">IT Ocean</a></li>
-                <li><a href="#jungle" class="nav-link">Project Dschungel</a></li>
+                <li><a href="#strand" class="nav-link active" data-page="strand">Strand</a></li>
+                <li><a href="#ocean" class="nav-link" data-page="ocean">IT Ocean</a></li>
+                <li><a href="#jungle" class="nav-link" data-page="jungle">Project Dschungel</a></li>
                 <li><a href="#" class="language-toggle">Switch to English</a></li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                ☰
+            </button>
         </div>
     </nav>
 
-    <!-- Transition Buttons -->
+    <!-- Transition Controls -->
     <div class="transition-controls">
-        <button class="transition-btn btn-ocean" id="diveInBtn">
+        <button class="transition-btn btn-ocean" id="diveInBtn" aria-label="Navigate to IT Ocean section">
             <span class="btn-icon">🌊</span>
             <span class="btn-text">Dive In</span>
         </button>
-        <button class="transition-btn btn-jungle" id="exploreBtn">
+        <button class="transition-btn btn-jungle" id="exploreBtn" aria-label="Navigate to Project Jungle section">
             <span class="btn-icon">🌿</span>
             <span class="btn-text">Let's Explore</span>
         </button>
     </div>
 
     <!-- Main Content Container -->
-    <main class="content-container">
+    <main class="content-container" id="main-content">
         
         <!-- Strand Content (Landing) -->
         <section class="page-content strand-content active" id="strandPage">
@@ -64,10 +92,10 @@
                     <div class="cta-section">
                         <p class="cta-text">Bereit für eine Entdeckungsreise?</p>
                         <div class="cta-buttons">
-                            <button class="cta-btn ocean-cta" onclick="startOceanTransition()">
+                            <button class="cta-btn ocean-cta" aria-label="Navigate to IT Ocean section">
                                 🌊 Tauche in den IT Ocean
                             </button>
-                            <button class="cta-btn jungle-cta" onclick="startJungleTransition()">
+                            <button class="cta-btn jungle-cta" aria-label="Navigate to Project Jungle section">
                                 🌿 Erkunde den Project Dschungel
                             </button>
                         </div>
@@ -76,8 +104,8 @@
 
                 <!-- Decorative Elements -->
                 <div class="beach-decorations">
-                    <div class="palm-shadow palm-shadow-1"></div>
-                    <div class="palm-shadow palm-shadow-2"></div>
+                    <div class="palm-shadow palm-shadow-1" style="--initial-rotation: -15deg;"></div>
+                    <div class="palm-shadow palm-shadow-2" style="--initial-rotation: 20deg;"></div>
                     <div class="sand-texture"></div>
                     <div class="wave-gentle wave-1"></div>
                     <div class="wave-gentle wave-2"></div>
@@ -98,10 +126,10 @@
                                 <strong>📧 Email:</strong> <a href="mailto:stefan@example.com">stefan@example.com</a>
                             </div>
                             <div class="contact-item">
-                                <strong>💼 Xing:</strong> <a href="#" target="_blank">Stefan Simmeth</a>
+                                <strong>💼 Xing:</strong> <a href="#" target="_blank" rel="noopener">Stefan Simmeth</a>
                             </div>
                             <div class="contact-item">
-                                <strong>💻 GitHub:</strong> <a href="#" target="_blank">@St33f3n</a>
+                                <strong>💻 GitHub:</strong> <a href="#" target="_blank" rel="noopener">@St33f3n</a>
                             </div>
                             <div class="contact-item">
                                 <strong>📅 Verfügbar:</strong> Ab August 2025
@@ -186,7 +214,7 @@
                             <h4>1. Opencontroller</h4>
                             <p>GUI debugging and control tool for IoT projects, built with Rust + Egui. Provides real-time monitoring, device management, and debug interfaces. Bridges the gap between embedded hardware and user-friendly control panels.</p>
                             <div class="project-links">
-                                <a href="https://github.com/St33f3n/Opencontroller" target="_blank">GitHub</a>
+                                <a href="https://github.com/St33f3n/Opencontroller" target="_blank" rel="noopener">GitHub</a>
                             </div>
                         </div>
 
@@ -194,7 +222,7 @@
                             <h4>2. Homelab Infrastructure</h4>
                             <p>Self-hosted enterprise-level infrastructure serving 40+ containerized services. Key services include Nextcloud (Google alternative), Grafana (monitoring), Home Assistant (IoT hub), GitLab (CI/CD), and PostgreSQL database backbone. Managed via Docker, Ansible, and custom automation scripts.</p>
                             <div class="project-links">
-                                <a href="#" target="_blank">GitLab</a>
+                                <a href="#" target="_blank" rel="noopener">GitLab</a>
                             </div>
                         </div>
 
@@ -344,10 +372,10 @@
                 <div class="jungle-links">
                     <h2>🔗 Explore More</h2>
                     <div class="external-links">
-                        <a href="#" class="jungle-link" target="_blank">
+                        <a href="#" class="jungle-link" target="_blank" rel="noopener">
                             📚 Explore more projects in my WikiJS
                         </a>
-                        <a href="#" class="jungle-link" target="_blank">
+                        <a href="#" class="jungle-link" target="_blank" rel="noopener">
                             💻 Source code on GitHub/GitLab
                         </a>
                     </div>
@@ -357,12 +385,23 @@
 
     </main>
 
-    <!-- Animation Overlays (will be dynamically created) -->
+    <!-- Animation Container (dynamically filled) -->
     <div id="animationContainer"></div>
 
-    <!-- Scripts -->
+    <!-- Scripts (load in order) -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/transitions.js"></script>
+    
+    <!-- Performance Monitoring (development only) -->
+    <script>
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('🏝️ Stefan Simmeth Website - Development Mode');
+            console.log('Available debug tools:');
+            console.log('- window.stefanDebug (main.js)');
+            console.log('- window.transitionDebug (transitions.js)');
+            console.log('- window.navigationUtils (navigation.js)');
+        }
+    </script>
 </body>
 </html>
