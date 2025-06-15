@@ -13,24 +13,15 @@
     <meta property="og:description" content="Bioprozessinformatik Student mit Passion für IoT-Automatisierung und selbst-gehostete Infrastrukturen">
     <meta property="og:url" content="https://stefan-simmeth.dev">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="svgs/logo.svg">
-    <link rel="icon" type="image/png" href="favicon.png">
-    
     <title>Stefan Simmeth - Engineering the Space Between Bits and Atoms</title>
     
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="assets/css/main.css" as="style">
-    <link rel="preload" href="assets/js/main.js" as="script">
-    
-    <!-- Stylesheets -->
+    <link rel="icon" type="image/svg+xml" href="svgs/logo.svg">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/strand.css">
-    <link rel="stylesheet" href="assets/css/ocean.css">
-    <link rel="stylesheet" href="assets/css/jungle.css">
     <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body class="strand-theme">
+    
     <!-- Skip Navigation for Accessibility -->
     <a href="#main-content" class="skip-navigation">Skip to main content</a>
     
@@ -41,10 +32,10 @@
                 <span class="logo-text">Stefan Simmeth</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#strand" class="nav-link active" data-page="strand">Strand</a></li>
-                <li><a href="#ocean" class="nav-link" data-page="ocean">IT Ocean</a></li>
-                <li><a href="#jungle" class="nav-link" data-page="jungle">Project Dschungel</a></li>
-                <li><a href="#" class="language-toggle">Switch to English</a></li>
+                <li><a href="index.html" class="nav-link active">Strand</a></li>
+                <li><a href="it-ocean.html" class="nav-link">IT Ocean</a></li>
+                <li><a href="project-jungle.html" class="nav-link">Project Dschungel</a></li>
+                <li><a href="en/index.html" class="language-toggle">Switch to English</a></li>
             </ul>
             <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 ☰
@@ -52,23 +43,9 @@
         </div>
     </nav>
 
-    <!-- Transition Controls -->
-    <div class="transition-controls">
-        <button class="transition-btn btn-ocean" id="diveInBtn" aria-label="Navigate to IT Ocean section">
-            <span class="btn-icon">🌊</span>
-            <span class="btn-text">Dive In</span>
-        </button>
-        <button class="transition-btn btn-jungle" id="exploreBtn" aria-label="Navigate to Project Jungle section">
-            <span class="btn-icon">🌿</span>
-            <span class="btn-text">Let's Explore</span>
-        </button>
-    </div>
-
-    <!-- Main Content Container -->
+    <!-- Main Content -->
     <main class="content-container" id="main-content">
-        
-        <!-- Strand Content (Landing) -->
-        <section class="page-content strand-content active" id="strandPage">
+        <section class="strand-content">
             <div class="hero-section">
                 <div class="hero-content">
                     <h1 class="main-headline">Engineering the Space Between Bits and Atoms</h1>
@@ -89,13 +66,25 @@
                         </div>
                     </div>
 
+                    <!-- Transition Controls - Content-orientiert -->
+                    <div class="transition-controls">
+                        <button class="transition-btn btn-ocean" id="diveInBtn" aria-label="Navigate to IT Ocean section">
+                            <span class="btn-icon">🌊</span>
+                            <span class="btn-text">Dive In</span>
+                        </button>
+                        <button class="transition-btn btn-jungle" id="exploreBtn" aria-label="Navigate to Project Jungle section">
+                            <span class="btn-icon">🌿</span>
+                            <span class="btn-text">Let's Explore</span>
+                        </button>
+                    </div>
+
                     <div class="cta-section">
                         <p class="cta-text">Bereit für eine Entdeckungsreise?</p>
                         <div class="cta-buttons">
-                            <button class="cta-btn ocean-cta" aria-label="Navigate to IT Ocean section">
+                            <button class="cta-btn ocean-cta" onclick="navigateToOcean()" aria-label="Navigate to IT Ocean section">
                                 🌊 Tauche in den IT Ocean
                             </button>
-                            <button class="cta-btn jungle-cta" aria-label="Navigate to Project Jungle section">
+                            <button class="cta-btn jungle-cta" onclick="navigateToJungle()" aria-label="Navigate to Project Jungle section">
                                 🌿 Erkunde den Project Dschungel
                             </button>
                         </div>
@@ -113,294 +102,198 @@
                 </div>
             </div>
         </section>
-
-        <!-- IT Ocean Content -->
-        <section class="page-content ocean-content" id="oceanPage">
-            <div class="ocean-container">
-                <div class="lighthouse-section">
-                    <h1 class="ocean-title">IT Ocean - Professional Portfolio</h1>
-                    <div class="contact-lighthouse">
-                        <h2>🏮 Lighthouse - Navigation & Kontakt</h2>
-                        <div class="contact-grid">
-                            <div class="contact-item">
-                                <strong>📧 Email:</strong> <a href="mailto:stefan@example.com">stefan@example.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>💼 Xing:</strong> <a href="#" target="_blank" rel="noopener">Stefan Simmeth</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>💻 GitHub:</strong> <a href="#" target="_blank" rel="noopener">@St33f3n</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>📅 Verfügbar:</strong> Ab August 2025
-                            </div>
-                            <div class="contact-item">
-                                <strong>📍 Location:</strong> Deutschland | Remote-friendly
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="surface-waters">
-                    <h2>🌊 Surface Waters - Skills Overview</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Software Development</h3>
-                            <div class="skill-group">
-                                <h4>Rust:</h4>
-                                <ul>
-                                    <li>System-level applications</li>
-                                    <li>Tokio async framework</li>
-                                    <li>Immediate Mode UI (Egui)</li>
-                                </ul>
-                            </div>
-                            <div class="skill-group">
-                                <h4>Python:</h4>
-                                <ul>
-                                    <li>Automation & scripting</li>
-                                    <li>RESTful APIs</li>
-                                    <li>Data processing</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Infrastructure & DevOps</h3>
-                            <div class="skill-group">
-                                <h4>Infrastructure:</h4>
-                                <ul>
-                                    <li>Docker containerization</li>
-                                    <li>GitLab CI/CD pipelines</li>
-                                    <li>Self-hosted services (40+ containers)</li>
-                                </ul>
-                            </div>
-                            <div class="skill-group">
-                                <h4>Database Systems:</h4>
-                                <ul>
-                                    <li>PostgreSQL administration</li>
-                                    <li>Data architecture & optimization</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Hardware Integration</h3>
-                            <div class="skill-group">
-                                <h4>IoT Development:</h4>
-                                <ul>
-                                    <li>ESP32/Arduino programming</li>
-                                    <li>Sensor integration & MQTT</li>
-                                    <li>Real-time data processing</li>
-                                </ul>
-                            </div>
-                            <div class="skill-group">
-                                <h4>Digital Manufacturing:</h4>
-                                <ul>
-                                    <li>3D printing workflows</li>
-                                    <li>CAD integration & automation</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="deep-current">
-                    <h2>🌀 The Deep Current - Projekte</h2>
-                    
-                    <div class="featured-projects">
-                        <h3>Featured Projects</h3>
-                        
-                        <div class="project-card featured">
-                            <h4>1. Opencontroller</h4>
-                            <p>GUI debugging and control tool for IoT projects, built with Rust + Egui. Provides real-time monitoring, device management, and debug interfaces. Bridges the gap between embedded hardware and user-friendly control panels.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/St33f3n/Opencontroller" target="_blank" rel="noopener">GitHub</a>
-                            </div>
-                        </div>
-
-                        <div class="project-card featured">
-                            <h4>2. Homelab Infrastructure</h4>
-                            <p>Self-hosted enterprise-level infrastructure serving 40+ containerized services. Key services include Nextcloud (Google alternative), Grafana (monitoring), Home Assistant (IoT hub), GitLab (CI/CD), and PostgreSQL database backbone. Managed via Docker, Ansible, and custom automation scripts.</p>
-                            <div class="project-links">
-                                <a href="#" target="_blank" rel="noopener">GitLab</a>
-                            </div>
-                        </div>
-
-                        <div class="project-card featured">
-                            <h4>3. Helmholtz-Zentrum Collaboration</h4>
-                            <p>6-month team collaboration maintaining and improving analysis scripts for scientific data processing. Worked alongside PhD researchers to optimize computational workflows and ensure code reliability.</p>
-                        </div>
-                    </div>
-
-                    <div class="additional-projects">
-                        <h3>Additional Projects</h3>
-                        <div class="project-list">
-                            <div class="project-item">
-                                <strong>AI-Pipeline Tool:</strong> Trilium Notes integration with Anthropic API and Ollama for automated note processing
-                            </div>
-                            <div class="project-item">
-                                <strong>Serial Data Manager:</strong> Rust-based tool for USB communication with microcontrollers, data parsing and storage
-                            </div>
-                            <div class="project-item">
-                                <strong>CO2 Footprint Calculator:</strong> University project improving greenhouse carbon footprint calculation website
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ocean-floor">
-                    <h2>🌑 Ocean Floor - Professional Experience</h2>
-                    
-                    <div class="experience-section">
-                        <h3>Current Role</h3>
-                        <div class="experience-item">
-                            <h4>Tutor - Automation Practicals | Hochschule | 2024-Present</h4>
-                            <ul>
-                                <li>Teaching PLC programming & automation basics to biotechnology students</li>
-                                <li>Mentoring students in technical problem-solving</li>
-                                <li>Developing practical exercises for industrial automation systems</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="experience-section">
-                        <h3>Previous Experience</h3>
-                        <div class="experience-item">
-                            <h4>Research Assistant | Helmholtz-Zentrum | 6 Monate 2024</h4>
-                            <ul>
-                                <li>Maintained and improved scientific analysis scripts in team environment</li>
-                                <li>Collaborated with PhD researchers on computational workflows</li>
-                                <li>Ensured code reliability and documentation standards</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <h4>Project Developer | University Project | 2024</h4>
-                            <ul>
-                                <li>Enhanced CO2 footprint calculation website for greenhouse applications</li>
-                                <li>Improved user interface and calculation accuracy</li>
-                                <li>Applied sustainable technology concepts to real-world applications</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="education-section">
-                        <h3>Education</h3>
-                        <div class="education-item">
-                            <h4>Bioprozessinformatik B.Sc. | Hochschule | Expected August 2025</h4>
-                            <ul>
-                                <li>Applied Computer Science with focus on biological and chemical processes</li>
-                                <li>Coursework: Bioinformatics, Process Engineering, Reactor Fermentation, Automation Technology</li>
-                                <li>Specializations: Control Systems, Smart Automation, Robotics</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Jungle Content -->
-        <section class="page-content jungle-content" id="junglePage">
-            <div class="jungle-container">
-                <h1 class="jungle-title">Project Dschungel - Labs & Experiments</h1>
-                
-                <div class="jungle-intro">
-                    <p>Willkommen im wilden Teil meiner Welt! Hier experimentiere ich mit neuen Technologien, baue verrückte IoT-Projekte und verbinde Software mit der physischen Welt.</p>
-                </div>
-
-                <div class="project-categories">
-                    
-                    <div class="category-section">
-                        <h2>🌱 Bio-Automation</h2>
-                        <div class="jungle-projects">
-                            <div class="jungle-project">
-                                <h3>Hydroponik-Automatisierung</h3>
-                                <p>Guayusa cultivation with Python + MQTT + Home Assistant integration. Automated nutrient delivery, pH monitoring, and growth optimization.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>Gartenautomatisierung</h3>
-                                <p>Automated irrigation system with soil moisture monitoring, weather integration, and smart scheduling.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>Growtent Automation</h3>
-                                <p>Climate control and nutrient delivery for exotic plants. Temperature, humidity, and light cycle automation.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>Terrarium-Automation</h3>
-                                <p>Environmental control for specialized habitats. Misting systems, heating, and ecosystem monitoring.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-section">
-                        <h2>🏠 Home Systems</h2>
-                        <div class="jungle-projects">
-                            <div class="jungle-project">
-                                <h3>Energiemanagement</h3>
-                                <p>Smart energy monitoring and optimization via Home Assistant and MQTT. Real-time consumption tracking and automated optimization.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>HVAC System Automation</h3>
-                                <p>Intelligent climate control with occupancy detection, weather forecasting integration, and energy efficiency optimization.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>IoT-Wetterstation</h3>
-                                <p>Agricultural weather monitoring with multiple sensor arrays. Data logging, trend analysis, and integration with automation systems.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-section">
-                        <h2>⚙️ Infrastructure Experiments</h2>
-                        <div class="jungle-projects">
-                            <div class="jungle-project">
-                                <h3>NixOS</h3>
-                                <p>Declarative system configuration and deployment experiments. Exploring reproducible infrastructure and atomic upgrades.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>OpenWRT/Networking</h3>
-                                <p>Custom router configurations, VLANs, and network optimization. Advanced networking setups and security configurations.</p>
-                            </div>
-                            <div class="jungle-project">
-                                <h3>Digital Manufacturing</h3>
-                                <p>CAD workflow automation and 3D printing optimization. Custom toolchains and automated quality control.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="jungle-links">
-                    <h2>🔗 Explore More</h2>
-                    <div class="external-links">
-                        <a href="#" class="jungle-link" target="_blank" rel="noopener">
-                            📚 Explore more projects in my WikiJS
-                        </a>
-                        <a href="#" class="jungle-link" target="_blank" rel="noopener">
-                            💻 Source code on GitHub/GitLab
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Animation Container (dynamically filled) -->
+    <!-- Animation Container -->
     <div id="animationContainer"></div>
 
-    <!-- Scripts (load in order) -->
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/transitions.js"></script>
-    
-    <!-- Performance Monitoring (development only) -->
     <script>
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log('🏝️ Stefan Simmeth Website - Development Mode');
-            console.log('Available debug tools:');
-            console.log('- window.stefanDebug (main.js)');
-            console.log('- window.transitionDebug (transitions.js)');
-            console.log('- window.navigationUtils (navigation.js)');
+        // Set current page
+        if (window.stefanSite) {
+            window.stefanSite.currentPage = 'strand';
+        }
+        
+        // Mouse tracking variables
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        // Navigation functions for animations
+        function navigateToOcean() {
+            if (typeof startOceanTransition === 'function') {
+                startOceanTransition();
+            } else {
+                // Fallback: direct navigation
+                window.location.href = 'it-ocean.html';
+            }
+        }
+        
+        function navigateToJungle() {
+            if (typeof startJungleTransition === 'function') {
+                startJungleTransition();
+            } else {
+                // Fallback: direct navigation
+                window.location.href = 'project-jungle.html';
+            }
+        }
+        
+        // Mouse tracking for transition buttons (Desktop only)
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                updateTransitionButtonVisibility();
+            });
+            
+            // Hide buttons when mouse leaves window
+            document.addEventListener('mouseleave', function() {
+                const controls = document.querySelector('.transition-controls');
+                if (controls) {
+                    controls.classList.remove('content-hover-left', 'content-hover-right');
+                }
+            });
+        }
+        
+        function updateTransitionButtonVisibility() {
+            if (window.innerWidth <= 768) return;
+            
+            const controls = document.querySelector('.transition-controls');
+            const heroContent = document.querySelector('.hero-content');
+            if (!controls || !heroContent) return;
+            
+            // Berechne Content-Container Position
+            const contentRect = heroContent.getBoundingClientRect();
+            const contentLeft = contentRect.left;
+            const contentRight = contentRect.right;
+            const contentWidth = contentRect.width;
+            
+            // Hover-Bereiche links und rechts vom Content
+            const leftHoverZone = contentLeft - 150; // 150px links vom Content
+            const rightHoverZone = contentRight + 150; // 150px rechts vom Content
+            
+            // Reset classes
+            controls.classList.remove('content-hover-left', 'content-hover-right');
+            
+            // Check mouse position relative to content
+            if (mouseX >= contentLeft - 150 && mouseX <= contentLeft + 100) {
+                controls.classList.add('content-hover-left'); // Ocean links
+            } else if (mouseX >= contentRight - 100 && mouseX <= contentRight + 150) {
+                controls.classList.add('content-hover-right'); // Jungle rechts
+            }
+        }
+        
+        // Show buttons permanently on mobile
+        if (window.innerWidth <= 768) {
+            document.addEventListener('DOMContentLoaded', function() {
+                const controls = document.querySelector('.transition-controls');
+                if (controls) {
+                    // Mobile layout is handled by CSS
+                    const oceanBtn = controls.querySelector('.btn-ocean');
+                    const jungleBtn = controls.querySelector('.btn-jungle');
+                    if (oceanBtn) {
+                        oceanBtn.style.opacity = '1';
+                        oceanBtn.style.pointerEvents = 'auto';
+                    }
+                    if (jungleBtn) {
+                        jungleBtn.style.opacity = '1';
+                        jungleBtn.style.pointerEvents = 'auto';
+                    }
+                }
+            });
+        }
+        
+        // Transition button event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const diveBtn = document.getElementById('diveInBtn');
+            const exploreBtn = document.getElementById('exploreBtn');
+            
+            if (diveBtn) {
+                diveBtn.addEventListener('click', navigateToOcean);
+            }
+            
+            if (exploreBtn) {
+                exploreBtn.addEventListener('click', navigateToJungle);
+            }
+        });
+        
+        // Enhanced ocean transition with animated waves
+        function startOceanTransition() {
+            console.log('🌊 Starting Ocean Transition');
+            
+            // Create wave overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'wave-overlay active';
+            overlay.innerHTML = `
+                <div class="wave-element wave-1"></div>
+                <div class="wave-element wave-2"></div>
+                <div class="wave-element wave-3"></div>
+            `;
+            
+            // Add bubbles
+            for (let i = 0; i < 6; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.animationDelay = Math.random() * 2 + 's';
+                bubble.style.width = bubble.style.height = (3 + Math.random() * 8) + 'px';
+                overlay.appendChild(bubble);
+            }
+            
+            document.getElementById('animationContainer').appendChild(overlay);
+            
+            // Navigate after animation starts
+            setTimeout(() => {
+                window.location.href = 'it-ocean.html';
+            }, 1200);
+        }
+        
+        // Enhanced jungle transition with palm leaves
+        function startJungleTransition() {
+            console.log('🌿 Starting Jungle Transition');
+            
+            // Create palm overlay with SVG leaves
+            const overlay = document.createElement('div');
+            overlay.className = 'palm-overlay active';
+            
+            // Create left and right palm leaves
+            for (let side of ['left', 'right']) {
+                for (let i = 1; i <= 3; i++) {
+                    const leaf = document.createElement('div');
+                    leaf.className = `palm-leaf ${side}-${i}`;
+                    leaf.innerHTML = createPalmLeafSVG(side, i);
+                    overlay.appendChild(leaf);
+                }
+            }
+            
+            // Add jungle reveal background
+            const reveal = document.createElement('div');
+            reveal.className = 'jungle-reveal';
+            overlay.appendChild(reveal);
+            
+            document.getElementById('animationContainer').appendChild(overlay);
+            
+            // Navigate after animation starts
+            setTimeout(() => {
+                window.location.href = 'project-jungle.html';
+            }, 1300);
+        }
+        
+        function createPalmLeafSVG(side, index) {
+            const rotation = side === 'left' ? -15 + (index * 5) : 15 - (index * 5);
+            return `
+                <svg viewBox="0 0 200 300" style="width:100%;height:100%;transform:rotate(${rotation}deg)">
+                    <path d="M100 10 C120 30, 140 60, 150 100 C155 140, 150 180, 140 220 C130 250, 110 270, 100 290 C90 270, 70 250, 60 220 C50 180, 45 140, 50 100 C60 60, 80 30, 100 10 Z" 
+                          fill="url(#leafGrad${side}${index})" stroke="#065f46" stroke-width="2"/>
+                    <path d="M100 15 L100 285" stroke="#065f46" stroke-width="3"/>
+                    <defs>
+                        <linearGradient id="leafGrad${side}${index}">
+                            <stop offset="0%" stop-color="#16a34a"/>
+                            <stop offset="100%" stop-color="#065f46"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            `;
         }
     </script>
 </body>

@@ -95,23 +95,31 @@ function updateTransitionButtonVisibility() {
     const controls = document.querySelector('.transition-controls');
     if (!controls || window.innerWidth <= 768) return;
     
+    // Nur auf Strand-Seite anzeigen
+    const currentPage = window.stefanSite?.currentPage || 'strand';
+    if (currentPage !== 'strand') {
+        controls.style.display = 'none';
+        return;
+    }
+    
+    controls.style.display = 'block';
+    
     const windowWidth = window.innerWidth;
-    const leftZone = windowWidth * 0.15; // Left 15% of screen
-    const rightZone = windowWidth * 0.85; // Right 15% of screen
+    const leftZone = windowWidth * 0.15; // Left 15% = Ocean
+    const rightZone = windowWidth * 0.85; // Right 15% = Jungle
     
     // Reset classes
     controls.classList.remove('mouse-left', 'mouse-right');
     controls.style.opacity = '0';
     
     if (mouseX <= leftZone) {
-        controls.classList.add('mouse-left');
+        controls.classList.add('mouse-left'); // Ocean links
         controls.style.opacity = '1';
     } else if (mouseX >= rightZone) {
-        controls.classList.add('mouse-right');
+        controls.classList.add('mouse-right'); // Jungle rechts
         controls.style.opacity = '1';
     }
 }
-
 function hideTransitionButtons() {
     const controls = document.querySelector('.transition-controls');
     if (controls && window.innerWidth > 768) {

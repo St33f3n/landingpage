@@ -258,20 +258,24 @@ a:hover {
 .transition-btn:hover::before {
     transform: translateX(100%);
 }
-
 .btn-ocean {
-    left: 30px;
+    left: -80px;  /* Links vom Content-Container */
     background: linear-gradient(135deg, var(--deep-teal), var(--sea-foam));
     border: 2px solid rgba(45, 212, 191, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-20px);
 }
 
 .btn-jungle {
-    right: 30px;
+    right: -80px;  /* Rechts vom Content-Container */
     background: linear-gradient(135deg, var(--palm-green), var(--vine-green));
     border-radius: 15px 50px 15px 50px;
     border: 2px solid rgba(22, 163, 74, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
 }
-
 .transition-btn:hover {
     transform: translateY(-4px) scale(1.08);
     box-shadow: 
@@ -537,23 +541,27 @@ a:hover {
         display: block;
     }
     
-    .transition-controls {
+.transition-controls {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        max-width: none !important;
+        margin: var(--space-xl) 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: var(--space-md) !important;
         opacity: 1 !important;
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        top: auto;
-        display: flex;
-        gap: var(--space-md);
     }
     
     .transition-btn {
-        position: static;
-        padding: var(--space-sm) var(--space-md);
-        font-size: 0.9rem;
-    }
-    
+        position: static !important;
+        padding: var(--space-sm) var(--space-md) !important;
+        font-size: 0.9rem !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }    
     .intro-grid {
         grid-template-columns: 1fr;
     }
