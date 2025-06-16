@@ -66,17 +66,7 @@
                         </div>
                     </div>
 
-                    <!-- Transition Controls - Content-orientiert -->
-                    <div class="transition-controls">
-                        <button class="transition-btn btn-ocean" id="diveInBtn" aria-label="Navigate to IT Ocean section">
-                            <span class="btn-icon">🌊</span>
-                            <span class="btn-text">Dive In</span>
-                        </button>
-                        <button class="transition-btn btn-jungle" id="exploreBtn" aria-label="Navigate to Project Jungle section">
-                            <span class="btn-icon">🌿</span>
-                            <span class="btn-text">Let's Explore</span>
-                        </button>
-                    </div>
+
 
                     <div class="cta-section">
                         <p class="cta-text">Bereit für eine Entdeckungsreise?</p>
@@ -115,10 +105,6 @@
             window.stefanSite.currentPage = 'strand';
         }
         
-        // Mouse tracking variables
-        let mouseX = 0;
-        let mouseY = 0;
-        
         // Navigation functions for animations
         function navigateToOcean() {
             if (typeof startOceanTransition === 'function') {
@@ -137,85 +123,6 @@
                 window.location.href = 'project-jungle.html';
             }
         }
-        
-        // Mouse tracking for transition buttons (Desktop only)
-        if (window.innerWidth > 768) {
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                updateTransitionButtonVisibility();
-            });
-            
-            // Hide buttons when mouse leaves window
-            document.addEventListener('mouseleave', function() {
-                const controls = document.querySelector('.transition-controls');
-                if (controls) {
-                    controls.classList.remove('content-hover-left', 'content-hover-right');
-                }
-            });
-        }
-        
-        function updateTransitionButtonVisibility() {
-            if (window.innerWidth <= 768) return;
-            
-            const controls = document.querySelector('.transition-controls');
-            const heroContent = document.querySelector('.hero-content');
-            if (!controls || !heroContent) return;
-            
-            // Berechne Content-Container Position
-            const contentRect = heroContent.getBoundingClientRect();
-            const contentLeft = contentRect.left;
-            const contentRight = contentRect.right;
-            const contentWidth = contentRect.width;
-            
-            // Hover-Bereiche links und rechts vom Content
-            const leftHoverZone = contentLeft - 150; // 150px links vom Content
-            const rightHoverZone = contentRight + 150; // 150px rechts vom Content
-            
-            // Reset classes
-            controls.classList.remove('content-hover-left', 'content-hover-right');
-            
-            // Check mouse position relative to content
-            if (mouseX >= contentLeft - 150 && mouseX <= contentLeft + 100) {
-                controls.classList.add('content-hover-left'); // Ocean links
-            } else if (mouseX >= contentRight - 100 && mouseX <= contentRight + 150) {
-                controls.classList.add('content-hover-right'); // Jungle rechts
-            }
-        }
-        
-        // Show buttons permanently on mobile
-        if (window.innerWidth <= 768) {
-            document.addEventListener('DOMContentLoaded', function() {
-                const controls = document.querySelector('.transition-controls');
-                if (controls) {
-                    // Mobile layout is handled by CSS
-                    const oceanBtn = controls.querySelector('.btn-ocean');
-                    const jungleBtn = controls.querySelector('.btn-jungle');
-                    if (oceanBtn) {
-                        oceanBtn.style.opacity = '1';
-                        oceanBtn.style.pointerEvents = 'auto';
-                    }
-                    if (jungleBtn) {
-                        jungleBtn.style.opacity = '1';
-                        jungleBtn.style.pointerEvents = 'auto';
-                    }
-                }
-            });
-        }
-        
-        // Transition button event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            const diveBtn = document.getElementById('diveInBtn');
-            const exploreBtn = document.getElementById('exploreBtn');
-            
-            if (diveBtn) {
-                diveBtn.addEventListener('click', navigateToOcean);
-            }
-            
-            if (exploreBtn) {
-                exploreBtn.addEventListener('click', navigateToJungle);
-            }
-        });
         
         // Enhanced ocean transition with animated waves
         function startOceanTransition() {

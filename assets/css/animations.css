@@ -1,23 +1,6 @@
 /* animations.css - Complete Transition Animations */
 
-/* Transition Button Hover Effects (Mouse Position Based) */
-.transition-controls {
-    opacity: 0;
-    transform: translateY(-50%);
-    transition: opacity 0.3s ease;
-}
 
-.transition-controls.show-left .btn-ocean,
-.transition-controls.show-right .btn-jungle {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.transition-controls.show-left .btn-jungle,
-.transition-controls.show-right .btn-ocean {
-    opacity: 0;
-    pointer-events: none;
-}
 
 /* Ocean Transition Animations */
 .wave-overlay {
@@ -274,57 +257,7 @@
     }
 }
 
-/* Mouse Position Detection for Transition Buttons */
-@media (min-width: 769px) {
-    .transition-controls {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    .transition-controls.mouse-left {
-        opacity: 1;
-    }
-    
-    .transition-controls.mouse-left .btn-ocean {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    
-    .transition-controls.mouse-left .btn-jungle {
-        opacity: 0;
-        transform: translateX(20px);
-        pointer-events: none;
-    }
-    
-    .transition-controls.mouse-right {
-        opacity: 1;
-    }
-    
-    .transition-controls.mouse-right .btn-jungle {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    
-    .transition-controls.mouse-right .btn-ocean {
-        opacity: 0;
-        transform: translateX(-20px);
-        pointer-events: none;
-    }
-}
 
-/* Mobile - Always show both buttons */
-@media (max-width: 768px) {
-    .transition-controls {
-        opacity: 1 !important;
-    }
-    
-    .transition-controls .btn-ocean,
-    .transition-controls .btn-jungle {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: none !important;
-    }
-}
 
 /* Page Transition States */
 .page-content {
@@ -353,7 +286,7 @@ body {
 
 .strand-theme {
     background: linear-gradient(135deg, 
-        #fef3c7 0%, #f59e0b 25%, #0ea5e9 75%, #0369a1 100%
+        #0369a1 0%, #0ea5e9 25%, #f59e0b 75%, #fef3c7 100%
     );
 }
 
@@ -417,11 +350,6 @@ body {
 /* Loading State */
 .page-loading {
     pointer-events: none;
-}
-
-.page-loading .transition-btn {
-    opacity: 0.5;
-    cursor: not-allowed;
 }
 
 /* Animation Cleanup */
