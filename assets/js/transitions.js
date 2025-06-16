@@ -3,7 +3,7 @@
 // Animation Configuration
 const ANIMATION_CONFIG = {
     ocean: {
-        duration: 2000,  // 2 seconds
+        duration: 3000,  // 3 seconds
         easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', // Smooth ease
         bubbleCount: {
             desktop: 8,
@@ -92,12 +92,12 @@ function startOceanTransition() {
     // Schedule content switch during animation
     setTimeout(() => {
         switchToPage('ocean');
-    }, ANIMATION_CONFIG.ocean.duration * 0.6);
+    }, ANIMATION_CONFIG.ocean.duration * 0.7);
     
     // Complete transition
     setTimeout(() => {
         completeTransition('ocean');
-    }, ANIMATION_CONFIG.ocean.duration);
+    }, ANIMATION_CONFIG.ocean.duration * 0.9);
 }
 
 function startJungleTransition() {

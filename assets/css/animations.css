@@ -26,7 +26,7 @@
 
 .wave-overlay.active {
     opacity: 1;
-    animation: oceanDive 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: oceanDive 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes oceanDive {
@@ -37,23 +37,23 @@
         );
         filter: brightness(1.2) contrast(1.1);
     }
-    25% {
-        transform: translateY(20vh) scale(1.05);
+    20% {
+        transform: translateY(0vh) scale(1.05);
         filter: brightness(1.1) contrast(1.05);
     }
-    50% {
-        transform: translateY(-10vh) scale(1.02);
+    40% {
+        transform: translateY(-20vh) scale(1.02);
         background: linear-gradient(180deg, 
             #2563eb 0%, #1e3a8a 25%, #0f172a 50%, #020617 75%, #000000 100%
         );
         filter: brightness(1.0) contrast(1.0);
     }
-    75% {
-        transform: translateY(-20vh) scale(1.01);
+    60% {
+        transform: translateY(-40vh) scale(1.01);
         filter: brightness(0.9) contrast(0.95);
     }
     100% {
-        transform: translateY(-30vh) scale(1);
+        transform: translateY(-100vh) scale(1); /* Dive deeper */
         background: linear-gradient(180deg, 
             #0f172a 0%, #020617 30%, #000000 60%, #000011 100%
         );
