@@ -79,16 +79,16 @@
 
 @keyframes oceanFlow {
     0%, 100% {
-        transform: translateX(0) translateY(0);
+        transform: translateX(0) translateY(0) rotate(0deg);
     }
     25% {
-        transform: translateX(-30px) translateY(-5px);
+        transform: translateX(-30px) translateY(-5px) rotate(1deg);
     }
     50% {
-        transform: translateX(0) translateY(-10px);
+        transform: translateX(0) translateY(-10px) rotate(0deg);
     }
     75% {
-        transform: translateX(20px) translateY(-3px);
+        transform: translateX(20px) translateY(-3px) rotate(-1deg);
     }
 }
 

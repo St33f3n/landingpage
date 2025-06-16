@@ -26,23 +26,23 @@
 
 .wave-overlay.active {
     opacity: 1;
-    animation: oceanDive 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: oceanDive 3s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
 }
 
 @keyframes oceanDive {
     0% {
-        transform: translateY(100vh) scale(1.1);
+        transform: translateY(100vh) scale(1.1) rotate(0deg);
         background: linear-gradient(180deg, 
             #87CEEB 0%, #4682B4 15%, #2563eb 35%, #1e3a8a 60%, #0f172a 85%, #000000 100%
         );
         filter: brightness(1.2) contrast(1.1);
     }
     20% {
-        transform: translateY(0vh) scale(1.05);
+        transform: translateY(0vh) scale(1.05) rotate(2deg);
         filter: brightness(1.1) contrast(1.05);
     }
     40% {
-        transform: translateY(-20vh) scale(1.02);
+        transform: translateY(-20vh) scale(1.02) rotate(-2deg);
         background: linear-gradient(180deg, 
             #2563eb 0%, #1e3a8a 25%, #0f172a 50%, #020617 75%, #000000 100%
         );
@@ -101,7 +101,7 @@
 
 @keyframes waveMotion {
     0%, 100% {
-        transform: translateX(0) translateY(0) scale(1);
+        transform: translateX(0) translateY(0) scale(1) rotate(0deg);
     }
     25% {
         transform: translateX(-40px) translateY(-12px) scale(1.02);

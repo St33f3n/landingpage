@@ -153,18 +153,10 @@
 }
 
 @keyframes gentleWave {
-    0%, 100% {
-        transform: scaleX(-1) translateX(0) translateY(0);
-    }
-    25% {
-        transform: scaleX(-1) translateX(25px) translateY(-5px);
-    }
-    50% {
-        transform: scaleX(-1) translateX(0) translateY(-8px);
-    }
-    75% {
-        transform: scaleX(-1) translateX(-15px) translateY(-3px);
-    }
+    0%, 100% { transform: scaleX(-1) translateX(0) translateY(0) rotate(0deg); }
+    25% { transform: scaleX(-1) translateX(25px) translateY(-5px) rotate(2deg); }
+    50% { transform: scaleX(-1) translateX(0) translateY(-8px) rotate(0deg); }
+    75% { transform: scaleX(-1) translateX(-15px) translateY(-3px) rotate(-2deg); }
 }
 
 /* Intro Cards - Beach Theme */
